@@ -1,4 +1,4 @@
-package {{ group_id }}.server;
+package {{ root_package }}.server;
 
 import java.util.Map;
 import org.springframework.web.bind.annotation.GetMapping;
