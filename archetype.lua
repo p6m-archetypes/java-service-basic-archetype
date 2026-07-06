@@ -38,7 +38,7 @@ context:set("project_title", context:get("PrefixName") .. " " .. context:get("Su
 context:set("root_directory", (string.gsub(context:get("root_package"), "%.", "/")))
 
 -- Service configuration
-require("ports").prompt(context, { help = "HTTP port for the service" })
+require("ports").prompt(context, { ports = { { "service", help = "HTTP port for the service" }, "management", "debug" } })
 
 -- EditorConfig + gitignore
 local editor_config = require("editor-config")
