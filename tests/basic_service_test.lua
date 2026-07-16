@@ -38,7 +38,7 @@ local EXPECTED_FILES = {
 -- on why install alone is a thin jar).
 local function build(dir)
   shell.run("mvn -q -B -DskipTests install", { cwd = dir, timeout = "900s", check = true })
-  shell.run("mvn -q -B -o -pl example-service-server -DskipTests package spring-boot:repackage",
+  shell.run("mvn -q -B -nsu -pl example-service-server -DskipTests package spring-boot:repackage",
     { cwd = dir, timeout = "900s", check = true })
 end
 
