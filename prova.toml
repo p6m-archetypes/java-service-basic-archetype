@@ -1,0 +1,13 @@
+# Prova acceptance tests: `prova` from the repo root runs the whole suite.
+#
+# jobs = 1: the suite builds the Maven reactor and boots the service; serial execution keeps those
+# heavy units from contending for CPU and memory.
+[run]
+paths = ["tests"]
+jobs = 1
+
+# CI runs the same suite; capability gating (mvn/java) handles what a runner lacks.
+[profiles.ci]
+paths = ["tests"]
+jobs = 1
+format = "json"
