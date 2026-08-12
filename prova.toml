@@ -1,3 +1,6 @@
+[requires]
+prova = ">= 0.16"
+
 # Prova acceptance tests: `prova` from the repo root runs the whole suite.
 #
 # jobs = 1: the suite builds the Maven reactor and boots the service; serial execution keeps those
