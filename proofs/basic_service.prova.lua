@@ -10,12 +10,9 @@ local SRC = "."
 local BOOT_JAR = "example-service-server/target/example-service-server-1.0.0-SNAPSHOT.jar"
 
 local ANSWERS = {
-  author_name      = "Test Author",
-  author_email     = "test@example.com",
-  org_name         = "acme",
-  solution_name    = "platform",
-  prefix_name      = "Example",
-  suffix_name      = "Service",
+  project_name = "example-service",
+  solution_name = "acme-platform",
+  entity_name = "example",
   group_id         = "acme.platform",
   artifactory_host = "acme.jfrog.io",
   image_registry   = "ghcr.io/acme",
@@ -25,10 +22,10 @@ local EXPECTED_FILES = {
   "pom.xml",
   "example-service-bom/pom.xml",
   "example-service-core/pom.xml",
-  "example-service-core/src/main/java/acme/platform/example/core/CoreConfig.java",
+  "example-service-core/src/main/java/acme/platform/exampleservice/core/CoreConfig.java",
   "example-service-server/pom.xml",
-  "example-service-server/src/main/java/acme/platform/example/server/Application.java",
-  "example-service-server/src/main/java/acme/platform/example/server/RootController.java",
+  "example-service-server/src/main/java/acme/platform/exampleservice/server/Application.java",
+  "example-service-server/src/main/java/acme/platform/exampleservice/server/RootController.java",
   "example-service-server/src/main/resources/application.yaml",
   "example-service-integration-tests/pom.xml",
   ".github/workflows/build.yaml",
@@ -43,7 +40,7 @@ local function build(dir)
 end
 
 local project = prova.fixture("java-basic:project", Scope.File, function(ctx)
-  return archetect.render{ source = SRC, answers = ANSWERS, destination = ctx:tempdir(), defaults = true }
+  return archetect.render{ source = SRC, answers = ANSWERS, destination = ctx:tempdir("render1"), defaults = true }
 end)
 
 archetect.verify(project, {
