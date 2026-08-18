@@ -11,7 +11,10 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,prometheus
+        # prometheus only (not the JSON `metrics` endpoint): both would contend for the /metrics
+        # path below, and the platform scrapes Prometheus text. With both exposed the JSON one
+        # wins and /metrics returns a name list instead of a metric family (S6).
+        include: health,info,prometheus
       base-path: /
       path-mapping:
         health: health

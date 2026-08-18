@@ -13,3 +13,10 @@ jobs = 1
 [profiles.ci]
 jobs = 1
 format = "json"
+
+# The org standards suite.
+# NOTE (YP6M-3372): pinned to `dev`, the org's integration branch, while the studio staging is
+# brought up against the whole archetype fleet — deliberate and temporary, so standards changes
+# land here without waiting on a release.
+[dependencies]
+p6m      = { git = "https://github.com/p6m-archetypes/prova-p6m-standards", branch = "dev" }
