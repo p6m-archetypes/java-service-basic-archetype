@@ -5,7 +5,7 @@ frameworks: ["Spring Boot", "Spring MVC"]
 tags: ["basic", "http", "service", "starter"]
 
 requires:
-  archetect: "3.0.0"
+  archetect: "3.4.3"
 
 templating:
   trim_blocks: true
