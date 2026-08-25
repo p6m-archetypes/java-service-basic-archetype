@@ -1,0 +1,19 @@
+name: Acceptance
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # No language toolchain step (S8b): the suite renders, inspects, and builds the archetype's
+      # own production image. Docker is the single requirement.
+      - uses: prova-rs/run-action@v1
+        with:
+          profile: ci
+          args: "-U"

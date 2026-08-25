@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: {{ project-name }}
+
+server:
+  port: ${SERVER_PORT:{{ service_port }}}
+
+management:
+  server:
+    port: ${MANAGEMENT_PORT:{{ management_port }}}
+  endpoints:
+    web:
+      exposure:
+        # prometheus only (not the JSON `metrics` endpoint): both would contend for the /metrics
+        # path below, and the platform scrapes Prometheus text. With both exposed the JSON one
+        # wins and /metrics returns a name list instead of a metric family (S6).
+        include: health,info,prometheus
+      base-path: /
+      path-mapping:
+        health: health
+        prometheus: metrics
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: {{ project-name }}
+  tracing:
+    # Tracing/OTLP export is disabled by default so the service starts without an
+    # external collector. The platform enables it at deploy time by setting
+    # management.tracing.enabled=true and OTEL_EXPORTER_OTLP_ENDPOINT (a full URL).
+    enabled: false
+    sampling:
+      probability: 1.0
+  otlp:
+    tracing:
+      endpoint: ${OTEL_EXPORTER_OTLP_ENDPOINT:http://localhost:4318/v1/traces}

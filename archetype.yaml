@@ -1,0 +1,46 @@
+description: "Java Basic Service"
+authors: ["Jimmie Fulton <jimmie@ybor.ai>"]
+languages: ["Java"]
+frameworks: ["Spring Boot", "Spring MVC"]
+tags: ["basic", "http", "service", "starter"]
+
+requires:
+  archetect: "3.4.3"
+
+templating:
+  trim_blocks: true
+  lstrip_blocks: true
+
+catalog:
+  p6m-identity:
+    source: "https://github.com/p6m-archetypes/p6m-identity-library.git#v1"
+    library: true
+    show: false
+  editor-config:
+    source: "https://github.com/archetect-common/editor-config-library.git"
+    library: true
+    show: false
+  gitignore:
+    source: "https://github.com/archetect-common/gitignore-library.git"
+    library: true
+    show: false
+  scm:
+    source: "https://github.com/archetect-common/scm-library.git"
+    library: true
+    show: false
+  ports:
+    source: "https://github.com/archetect-common/ports-library.git"
+    library: true
+    show: false
+  archiver:
+    source: "https://github.com/archetect-common/archive-library.git"
+    library: true
+    show: false
+  platform-application-manifests:
+    source: "https://github.com/p6m-archetypes/platform-application-manifests-library.git#v1"
+    library: true
+    show: false
+  java-ci:
+    source: "https://github.com/p6m-archetypes/java-ci-library.git#v1"
+    library: true
+    show: false
