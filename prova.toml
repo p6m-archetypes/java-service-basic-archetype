@@ -19,4 +19,4 @@ format = "json"
 # brought up against the whole archetype fleet — deliberate and temporary, so standards changes
 # land here without waiting on a release.
 [dependencies]
-p6m      = { git = "https://github.com/p6m-archetypes/prova-p6m-standards", branch = "dev" }
+p6m      = { git = "https://github.com/p6m-archetypes/prova-p6m-standards", tag = "v1" }

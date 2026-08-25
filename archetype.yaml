@@ -13,7 +13,7 @@ templating:
 
 catalog:
   p6m-identity:
-    source: "https://github.com/p6m-archetypes/p6m-identity-library.git#dev"
+    source: "https://github.com/p6m-archetypes/p6m-identity-library.git#v1"
     library: true
     show: false
   editor-config:
@@ -37,10 +37,10 @@ catalog:
     library: true
     show: false
   platform-application-manifests:
-    source: "https://github.com/p6m-archetypes/platform-application-manifests-library.git#dev"
+    source: "https://github.com/p6m-archetypes/platform-application-manifests-library.git#v1"
     library: true
     show: false
   java-ci:
-    source: "https://github.com/p6m-archetypes/java-ci-library.git#dev"
+    source: "https://github.com/p6m-archetypes/java-ci-library.git#v1"
     library: true
     show: false
