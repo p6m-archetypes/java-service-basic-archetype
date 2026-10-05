@@ -19,7 +19,7 @@ local NAME_SHAPES = { "customer-service", "user-details-service" }
 for _, project in ipairs(NAME_SHAPES) do
   local spec = p6m.spec{
     language = "java", shape = "basic",
-    project = project, solution = "acme-platform", registry = "ghcr.io/acme",
+    project = project, organization = "acme-platform", registry = "ghcr.io/acme",
     answers = { group_id = "acme.platform", artifactory_host = "acme.jfrog.io" },
   }
 
@@ -43,7 +43,7 @@ end
 -- Hermetic; no docker.
 local archetype_spec = p6m.spec{
   language = "java", shape = "basic",
-  project = "billing-service", solution = "acme-platform", registry = "ghcr.io/acme",
+  project = "billing-service", organization = "acme-platform", registry = "ghcr.io/acme",
   answers = { group_id = "acme.platform", artifactory_host = "acme.jfrog.io" },
 }
 
